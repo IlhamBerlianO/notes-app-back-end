@@ -1,0 +1,72 @@
+Menggunakan dua tools tambahan untuk memudahkan proses pengembangan web server.
+
+Tools:
+1. nodemon 
+    Tools pertama adalah nodemon, ia bisa dikatakan wajib digunakan selama proses pengembangan. 
+    Pasalnya, dengan tools ini kita tak perlu menjalankan ulang server ketika terjadi perubahan pada berkas JavaScript.
+    Nodemon akan mendeteksi perubahan kode JavaScript dan mengeksekusi ulang secara otomatis.
+
+    Cara install:
+        Ketik "npm install nodemon --save-dev" tanpa tanda petik di terminal yang sudah "npm init --y".
+
+2. ESLint
+    Tools yang kedua adalah ESLint, ia dapat membantu atau membimbing Anda untuk selalu menuliskan kode JavaScript dengan 
+    gaya yang konsisten. ESLint dapat mengevaluasi kode yang dituliskan berdasarkan aturan yang Anda terapkan.
+    Anda bisa menuliskan aturannya secara mandiri atau menggunakan gaya penulisan yang sudah ada seperti:
+        - AirBnb JavaScript Code Style.
+        - Google JavaScript Code Style.
+        - StandardJS Code Style. 
+    
+    Cara install:
+        Ketik "npm install eslint --save-dev" tanpa tanda petik di terminal yang sudah "npm init --y".
+    
+    CATATAN: 
+        Sebelum digunakan, Anda perlu melakukan konfigurasi terlebih dahulu. 
+        
+        Caranya dengan menggunakan perintah berikut di Terminal proyek:
+            "npx eslint --init" tanpa tanda petik.
+        
+        Kemudian, Anda akan diberikan beberapa pertanyaan. Silakan jawab pertanyaan yang ada dengan jawaban berikut:
+            - Ok to proceed? (y)                                     -> y
+            - How would you like to use ESLint?                      -> To check, find problems, and enforce code style.
+            - What type of modules does your project use?            -> CommonJS (require/exports).
+            - Which framework did you use?                           -> None of these. 
+            - Does your project use TypeScript?                      -> N.
+            - Where does your code run?                              -> Node (pilih menggunakan tanda panah atau spasi di keyboard).
+            - How would you like to define a style for your project? -> Use a popular style guide.
+            - Which style guide do you want to follow?               -> (Anda bebas memilih, sebagai contoh pilih AirBnB).
+            - What format do you want your config file to be in?     -> JSON.
+            - Would you like to …… (seluruh pertanyaan selanjutnya)  -> Y.
+            - Which package manager do you want to use?              -> npm
+        NOTE: UNTUK PERTANYAAN DIATAS KECUALI TAHAP PERTAMA, GUNAKAN ARAH PANAH DIKEYBOARD DAN ENTER
+
+        Setelah menjawab seluruh pertanyaan yang diberikan, maka akan terbentuk berkas konfigurasi eslint dengan nama .eslintrc.json.
+        Dan, tambahkan "lint": "eslint ./" menggunakan petik pada package.json dibagian "scripts" dan dibawah "start" (jika ada start)
+
+        Pada Terminal, terdapat eror dan warning bila Anda menggunakan AirBnB code style. Seperti inilah fungsi dari ESLint, ia akan memberi tahu alasan dan letak kesalahan dalam penulisan kode. 
+        Tiap eror yang tampil, itu menandakan adanya penulisan kode yang tidak sesuai dengan style guide yang sudah kita tetapkan. Melalui ESLint ini, kita dapat mencari letak kesalahan secara akurat dan cepat.
+
+        ESLint dapat diintegrasikan dengan berbagai text editor, termasuk VSCode.
+        Untuk mengaktifkan integrasi, Anda bisa menggunakan ekstensi ESLint untuk Visual Studio Code. Bagaimana cara mengunduh dan memasangnya? 
+        Mudah saja, caranya:
+            1. Pilih menu Extensions (terletak pada pojok kiri, logo 4 kotak dengan 1 kotak terpisah pada VSCode ini)
+            2. Cari ekstensi dengan nama ESLint.
+            3. Klik tombol “install” untuk memasang ESLint.
+
+        Untuk pengguna Windows, ekstensi ESLint belum sepenuhnya diaktifkan.
+        Anda perlu mengizinkan ekstensi ESLint berjalan melalui icon ‘Lampu’ yang muncul ketika Anda mengarahkan kursor ke kode console.
+        Contohnya pada sebuah file, coba tuliskan "console.log('Hallo kita akan membuat RESTful API');" akan ada ikon lampu disebelah kode ini.
+            1. Tekan ikon lampu tersebut, kemudian pilih opsi ESLint: Manage Library Execution.
+            2. Pilih “Allow Everywhere” pada pop-up yang muncul.
+            3. Kemudian, tutup dan buka ulang VSCode Anda. 
+        Kini ekstensi ESLint sudah berjalan dengan normal.
+        NOTE: Jika opsi ESLint: Manage Library Execution tidak ada, maka tidak perlu melakukan hal ini.
+
+
+Cara melihat apakah tools diatas sudah terinstall: 
+    package nodemon dan eslint akan muncul di package.json, lebih tepatnya pada devDependencies.
+
+
+Error penataan kode? Jalankan "npx eslint . --fix" tanpa tanda petik pada terminal.
+Error pada require? Restart VSCode.
+Tanda merah pada require(@hapi/hapi)? npm r @hapi/hapi untuk uninstal hapi lalu npm i -S @hapi/hapi untuk instal lagi. Selanjutnya restart VSCode
